@@ -81,6 +81,54 @@ h1 {
   margin-top: 6px;
   font-weight: 600;
 }
+.donate-footer {
+  margin-top: 28px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.donate-footer-btn {
+  display: block; width: 100%; padding: 12px; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+  color: #aaa; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: all 0.2s; text-decoration: none;
+}
+.donate-footer-btn:hover { background: rgba(255,255,255,0.1); color: #f6d365; }
+
+.donate-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.82); backdrop-filter: blur(8px);
+  z-index: 400; align-items: center; justify-content: center;
+}
+.donate-overlay.show { display: flex; }
+.donate-card {
+  background: linear-gradient(135deg, #1e1e3a, #2a2a4a);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 20px;
+  padding: 24px; text-align: center; max-width: 320px; width: 90%;
+}
+.donate-card h3 { font-size: 20px; color: #f6d365; margin-bottom: 4px; }
+.donate-card .donate-sub { font-size: 12px; color: #888; margin-bottom: 16px; }
+.donate-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.donate-tab {
+  flex: 1; padding: 8px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+  color: #888; font-size: 13px; cursor: pointer; transition: all 0.2s;
+}
+.donate-tab.wx.active { background: rgba(7,193,96,0.2); border-color: #07c160; color: #07c160; }
+.donate-tab.ali.active { background: rgba(22,119,255,0.2); border-color: #1677ff; color: #1677ff; }
+.donate-qr-wrap {
+  width: 200px; height: 200px; margin: 0 auto 12px; border-radius: 12px;
+  overflow: hidden; border: 2px solid rgba(255,255,255,0.1);
+  background: #fff; display: flex; align-items: center; justify-content: center;
+}
+.donate-qr-wrap img { width: 100%; height: 100%; object-fit: contain; }
+.donate-qr-placeholder { text-align: center; color: #999; font-size: 13px; padding: 20px; }
+.donate-qr-placeholder .qr-icon { font-size: 48px; margin-bottom: 8px; }
+.donate-close {
+  margin-top: 8px; padding: 10px 36px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2); background: transparent;
+  color: #aaa; font-size: 14px; cursor: pointer;
+}
+.donate-close:hover { background: rgba(255,255,255,0.1); }
+#donate-hint { color: #f6d365; font-size: 12px; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -101,6 +149,41 @@ h1 {
       <span class="game-tag">⭐ 精选</span>
     </a>
   </div>
+  <div class="donate-footer">
+    <button class="donate-footer-btn" onclick="toggleDonate()">☕ 喜欢这些游戏？请作者喝杯咖啡</button>
+  </div>
 </div>
+
+<div class="donate-overlay" id="donateOverlay" onclick="if(event.target===this)toggleDonate()">
+  <div class="donate-card">
+    <h3>☕ 支持作者</h3>
+    <p class="donate-sub">您的支持是我持续更新的动力 ❤️</p>
+    <div class="donate-tabs">
+      <div class="donate-tab wx active" id="tabWx" onclick="switchDonateTab('wx')">💚 微信赞赏</div>
+      <div class="donate-tab ali" id="tabAli" onclick="switchDonateTab('ali')">💙 支付宝</div>
+    </div>
+    <div class="donate-qr-wrap" id="donateQr">
+      <div class="donate-qr-placeholder">
+        <div class="qr-icon">📷</div>
+        <div>请将收款码图片</div>
+        <div>替换为此处占位</div>
+      </div>
+    </div>
+    <p id="donate-hint">保存图片 → 打开微信/支付宝 → 扫一扫</p>
+    <button class="donate-close" onclick="toggleDonate()">先不用了，继续逛</button>
+  </div>
+</div>
+
+<script>
+let donateTab = 'wx';
+function toggleDonate() {
+  document.getElementById('donateOverlay').classList.toggle('show');
+}
+function switchDonateTab(tab) {
+  donateTab = tab;
+  document.getElementById('tabWx').classList.toggle('active', tab === 'wx');
+  document.getElementById('tabAli').classList.toggle('active', tab === 'ali');
+}
+</script>
 </body>
 </html>
