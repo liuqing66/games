@@ -362,12 +362,8 @@ body {
       <div class="donate-tab wx active" id="tabWx" onclick="switchDonateTab('wx')">💚 WeChat</div>
       <div class="donate-tab ali" id="tabAli" onclick="switchDonateTab('ali')">💙 Alipay</div>
     </div>
-    <div class="donate-qr-wrap" id="donateQr">
-      <div class="donate-qr-placeholder">
-        <div class="qr-icon">📷</div>
-        <div>Replace with</div>
-        <div>QR code image</div>
-      </div>
+    <div class="donate-qr-wrap">
+      <img id="donateImg" src="qr-wx.jpg" alt="WeChat Pay QR">
     </div>
     <p id="donate-hint">Save image → Open WeChat/Alipay → Scan</p>
     <button class="donate-close" onclick="toggleDonate()">Close</button>
@@ -676,6 +672,7 @@ function switchDonateTab(tab) {
   donateTab = tab;
   document.getElementById('tabWx').classList.toggle('active', tab === 'wx');
   document.getElementById('tabAli').classList.toggle('active', tab === 'ali');
+  document.getElementById('donateImg').src = tab === 'wx' ? 'qr-wx.jpg' : 'qr-alipay.jpg';
 }
 </script>
 </body>

@@ -162,12 +162,8 @@ h1 {
       <div class="donate-tab wx active" id="tabWx" onclick="switchDonateTab('wx')">💚 微信赞赏</div>
       <div class="donate-tab ali" id="tabAli" onclick="switchDonateTab('ali')">💙 支付宝</div>
     </div>
-    <div class="donate-qr-wrap" id="donateQr">
-      <div class="donate-qr-placeholder">
-        <div class="qr-icon">📷</div>
-        <div>请将收款码图片</div>
-        <div>替换为此处占位</div>
-      </div>
+    <div class="donate-qr-wrap">
+      <img id="donateImg" src="qr-wx.jpg" alt="微信赞赏码">
     </div>
     <p id="donate-hint">保存图片 → 打开微信/支付宝 → 扫一扫</p>
     <button class="donate-close" onclick="toggleDonate()">先不用了，继续逛</button>
@@ -183,6 +179,7 @@ function switchDonateTab(tab) {
   donateTab = tab;
   document.getElementById('tabWx').classList.toggle('active', tab === 'wx');
   document.getElementById('tabAli').classList.toggle('active', tab === 'ali');
+  document.getElementById('donateImg').src = tab === 'wx' ? 'qr-wx.jpg' : 'qr-alipay.jpg';
 }
 </script>
 </body>
