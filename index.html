@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Games - Play Free!</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+#app {
+  width: 100%;
+  max-width: 440px;
+  padding: 20px;
+  text-align: center;
+}
+h1 {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+}
+.sub {
+  color: #8899aa;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+.games {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.game-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.game-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.game-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+.game-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.game-desc {
+  font-size: 12px;
+  color: #8899aa;
+  line-height: 1.5;
+}
+.game-tag {
+  display: inline-block;
+  background: rgba(246,211,101,0.2);
+  color: #f6d365;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <h1>🎮 Mini Games</h1>
+  <p class="sub">Free to play · No download · Instant fun</p>
+  <div class="games">
+    <a class="game-card" href="ball-sort.html">
+      <div class="game-icon">🧪</div>
+      <div class="game-title">Ball Sort Puzzle</div>
+      <div class="game-desc">Sort colored balls into matching tubes. Simple, addictive, and perfect to kill time!</div>
+      <span class="game-tag">🔥 Trending</span>
+    </a>
+    <a class="game-card" href="number-blocks.html">
+      <div class="game-icon">🧩</div>
+      <div class="game-title">Number Blocks Merge</div>
+      <div class="game-desc">Place blocks, merge same numbers, build combos. How high can you go?</div>
+      <span class="game-tag">⭐ Popular</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>
